@@ -1,0 +1,2 @@
+database structure in json
+first findout table required to query data and then query the data

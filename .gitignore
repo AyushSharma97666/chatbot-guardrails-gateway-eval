@@ -1,0 +1,44 @@
+# Environment variables / secrets
+.env
+.env.*
+!.env.example
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+
+# Streamlit secrets (if ever added)
+.streamlit/secrets.toml
+
+# Runtime logs
+logs/*.log
+
+# Generated databases - rebuildable from excel_files/ via
+# utils/loadData_to_DB.rebuild_database_from_excel(); system.db is pure
+# runtime audit/cache/eval state and should never be committed
+database/*.db
+
+# Jupyter notebook checkpoints
+.ipynb_checkpoints/
+
+# Claude Code local (personal) settings - not shared project config
+.claude/settings.local.json
+
+# IDE / editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini

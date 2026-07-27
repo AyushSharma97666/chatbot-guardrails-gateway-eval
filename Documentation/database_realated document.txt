@@ -1,0 +1,37 @@
+dbo.Accounts
+Primary ICD Diagnosis Code,	Admit ICD Diangosis Code,	Hospital Account ID,	Primary ICD Procedure Code,	Primary Payor ID,	Total Account Balance $,	Total Account Adjustment $,	Total Account Charge $,	Total Account Payment $,	HRRP Condition
+
+dbo.Departments
+Department Name,	Department ID,	Hospital ID,	Specialty Description
+
+
+dbo.Encounters
+Master Patient ID,	Patient Encounter ID,	Patient Admission Datetime,	Patient LOS,	Patient LOS Bucket,	Patient LOS Bucket Sort,	Admitting Provider ID,	Discharging Provider ID,	Attending Provider ID,	Patient Discharge Datetime,	Department ID,	Hospital Account ID,	Patient InICU Flag,	Patient Admitted Flag,	Patient Readmission Flag,	Patient Inpatient Readmission Flag
+
+dbo.Hospitals
+Hospital ID,	Hospital Name,	Hospital Address Number,	Hospital Address Street,	Hospital Address Full,	Hospital City,	Hospital Zip Code,	Hospital County,	Hospital State,	Hospital Country,	Hospital Latitude,	Hospital Longitude
+
+dbo.OrdersProcedures
+Patient Encounter ID,	Ordering Provider ID,	Order CPT,	Order Procedure Description,	Order Procedure ID,	Order Lab Status Description,	Order Lab Status ID,	Order Status Description,	Order Parent Order ID
+
+dbo.Patients
+Master Patient ID,	Patient Address Number,	Patient Address Street,	Patient Address Full,	Patient City,	Patient Zip Code,	Patient County,	Patient State,	Patient Country,	Patient Latitude,	Patient Longitude,	Patient Name,	Patient Gender,	Patient LACE Score,	Patient Geography Loaded,	Patient DOB,	Patient Marital Status,	Patient Primary Language,	Patient Is Citizen Flag,	Patient Is Deceased Flag,	Patient PCP Type,	Patient PCP ID,	Patient Ethnicity
+
+dbo.Physicians
+Provider First Name,	Provider Last Name,	Provider Full Name,	Provider ID,
+
+
+dbo.Practices
+Practice ID,	Practice Name
+
+dbo.QualityMeasureData
+Master Patient ID,	sClinicalMeasureKey,	Quality Measure Ctr,	Quality Measure ID,	Quality Provider ID,	IsCompliant,	IsNotCompliant,	Hospital ID,	Measure Name,	Submeasure Name,	Measure Type,	Measure Attribute 1,	Measure Attribute 2,	Measure Points,	Measure Target,	Measure Hedis75,	Measure Hedis90,	Measure Effective Date,	Measure End Date,	Latest Measure Flag,	Past Measure Flag,	Practice ID
+
+dbo.Results
+Master Patient ID,	ItemID,	ActivityHeaderResultID,	SignatureRequiredFLAG,	AcknowledgementReqFLAG,	CompletionStatus,	QODE,	Entryname,	EntryCode,	QODET,	Modifier1Name,	Modifier2Name,	Modifier3Name,	QOModDET,	QOClassificationDE,	OrderableName,	OrderableCode,	QOClassificationDET,	Create Datetime,	Last Update Datetime,	HasSecurityFLAG,	HasAnnotationFLAG,	IsAbnormalFLAG,	IsErrorFLAG,	DetailType,	ResultID,	AnswerDE,	AnswerEntryName,	AnswerEntryCode,	AnswerDET,	AnswerDataTypeDE,	AnswerDataTypeName,	AnswerDataTypeCode,	SourceName,	SourceCode,	SourceDET,	ResultStage,	UnitsName,	UnitsCode,	UnitsDET,	Clinical Datetime,	Verify Datetime,	ResultStatusName,	ResultStatusCode,	Result Datetime,	NumericResult,	ShortRefRange,	NormalizedUnitsName,	NormalizedUnitsCode,	NormalizedUnitsDET,	NormalizedValue,	ReasonForCreateType,	Performed Datetime,	Recorded Datetime,	HasResultTextFLAG,	HasRefRangeTextFLAG,	HasReferenceRangeFLAG,	AbnormalFlagType,	DecodedValue,	ResultFuzzyWhen,	ResultAnswer,	ValidationState,	LoincLabCode
+
+dbo.SurgicalEncounters
+Master Patient ID,	Surgery ID,	Surgical Admission Date,	Surgical Discharge Date,	Surgical LOS,	Surgical DRG Description,	Surgical Type,	Surgical Total Cost,	Surgical Total Profit,	Surgical Unit Name,	Surgical Admission Type,	Surgical Admission Desecription,	Surgical Admission Group,	Surgical Discharge Type,	Surgical Discharge Description,	Surgeon ID,	Surgical Specialty,
+
+dbo.Vitals
+Patient Encounter ID,	BloodPressureDiastolicNBR,	BloodPressureSystolicNBR,	BodyMassIndexNBR,	BodySurfaceAreaNBR,	HeightFeetInchesTXT,	PulseCNT,	RespirationCNT,	TemperatureFahrenheitNBR,	WeightOuncesQTY

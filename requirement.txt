@@ -1,0 +1,7 @@
+pandas
+openpyxl
+streamlit
+google-generativeai
+python-dotenv
+google.genai
+plotly

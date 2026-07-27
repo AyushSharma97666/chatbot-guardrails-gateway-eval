@@ -1,0 +1,164 @@
+[
+  {
+    "id": "golden_01",
+    "category": "aggregation",
+    "question": "How many total patients are in the database?",
+    "expected_sql_contains": ["COUNT", "Patients"],
+    "expected_row_count": 1,
+    "expected_answer_contains": ["patient"],
+    "notes": "Simple count sanity check"
+  },
+  {
+    "id": "golden_02",
+    "category": "aggregation",
+    "question": "How many total encounters are there?",
+    "expected_sql_contains": ["COUNT", "Encounters"],
+    "expected_row_count": 1,
+    "expected_answer_contains": ["encounter"],
+    "notes": "Simple count sanity check"
+  },
+  {
+    "id": "golden_03",
+    "category": "filter",
+    "question": "How many patients are male?",
+    "expected_sql_contains": ["Patients", "Gender"],
+    "expected_row_count": 1,
+    "expected_answer_contains": [],
+    "notes": "Single-table filter"
+  },
+  {
+    "id": "golden_04",
+    "category": "filter",
+    "question": "How many encounters had the patient in the ICU?",
+    "expected_sql_contains": ["Encounters", "ICU"],
+    "expected_row_count": 1,
+    "expected_answer_contains": [],
+    "notes": "Flag-column filter"
+  },
+  {
+    "id": "golden_05",
+    "category": "join",
+    "question": "What is the average length of stay by hospital?",
+    "expected_sql_contains": ["Hospitals", "Encounters"],
+    "expected_row_count": null,
+    "expected_answer_contains": [],
+    "notes": "3-table join: Encounters -> Departments -> Hospitals"
+  },
+  {
+    "id": "golden_06",
+    "category": "join",
+    "question": "How many encounters occurred in each department?",
+    "expected_sql_contains": ["Departments", "Encounters"],
+    "expected_row_count": null,
+    "expected_answer_contains": [],
+    "notes": "Join + group by"
+  },
+  {
+    "id": "golden_07",
+    "category": "join",
+    "question": "What is the readmission rate by hospital?",
+    "expected_sql_contains": ["Hospitals", "Readmission"],
+    "expected_row_count": null,
+    "expected_answer_contains": [],
+    "notes": "Readmission KPI, hospital-level aggregation"
+  },
+  {
+    "id": "golden_08",
+    "category": "trend",
+    "question": "How many encounters occurred each month?",
+    "expected_sql_contains": ["Encounters", "Admission"],
+    "expected_row_count": null,
+    "expected_answer_contains": [],
+    "notes": "Date-based trend/grouping"
+  },
+  {
+    "id": "golden_09",
+    "category": "topn",
+    "question": "What are the top 5 departments by number of encounters?",
+    "expected_sql_contains": ["Departments", "LIMIT"],
+    "expected_row_count": 5,
+    "expected_answer_contains": [],
+    "notes": "Top-N ranking"
+  },
+  {
+    "id": "golden_10",
+    "category": "topn",
+    "question": "Which 3 physicians have the most encounters as attending provider?",
+    "expected_sql_contains": ["Physicians", "LIMIT"],
+    "expected_row_count": 3,
+    "expected_answer_contains": [],
+    "notes": "Top-N ranking with join"
+  },
+  {
+    "id": "golden_11",
+    "category": "aggregation",
+    "question": "What is the total account charge across all accounts?",
+    "expected_sql_contains": ["SUM", "Accounts"],
+    "expected_row_count": 1,
+    "expected_answer_contains": [],
+    "notes": "Financial aggregation"
+  },
+  {
+    "id": "golden_12",
+    "category": "join",
+    "question": "What is the total surgical cost by surgical resource type?",
+    "expected_sql_contains": ["SurgicalCosts"],
+    "expected_row_count": null,
+    "expected_answer_contains": [],
+    "notes": "Group-by aggregation on SurgicalCosts (the table missing from the schema prompt doc)"
+  },
+  {
+    "id": "golden_13",
+    "category": "aggregation",
+    "question": "What is the average BMI recorded in the vitals data?",
+    "expected_sql_contains": ["Vitals", "AVG"],
+    "expected_row_count": 1,
+    "expected_answer_contains": [],
+    "notes": "Aggregation on a clinical measurement column"
+  },
+  {
+    "id": "golden_14",
+    "category": "filter",
+    "question": "How many patients are marked as deceased?",
+    "expected_sql_contains": ["Patients", "Deceased"],
+    "expected_row_count": 1,
+    "expected_answer_contains": [],
+    "notes": "Flag-column filter"
+  },
+  {
+    "id": "golden_15",
+    "category": "join",
+    "question": "What is the compliance rate for quality measures by hospital?",
+    "expected_sql_contains": ["QualityMeasureData", "Compliant"],
+    "expected_row_count": null,
+    "expected_answer_contains": [],
+    "notes": "Quality/compliance KPI"
+  },
+  {
+    "id": "golden_16",
+    "category": "edge_case",
+    "question": "How many encounters are there for department ID 999999?",
+    "expected_sql_contains": ["Encounters", "Department"],
+    "expected_row_count": 1,
+    "expected_answer_contains": [],
+    "notes": "Non-existent ID should return a single row with count 0, not an error"
+  },
+  {
+    "id": "golden_17",
+    "category": "aggregation",
+    "question": "How many distinct practices are there?",
+    "expected_sql_contains": ["Practices"],
+    "expected_row_count": 1,
+    "expected_answer_contains": [],
+    "notes": "Simple count on a small reference table"
+  },
+  {
+    "id": "golden_18",
+    "category": "topn",
+    "question": "List the top 5 procedures ordered by number of orders.",
+    "expected_sql_contains": ["OrdersProcedures", "LIMIT"],
+    "expected_row_count": 5,
+    "expected_answer_contains": [],
+    "notes": "Top-N ranking over OrdersProcedures"
+  }
+]
